@@ -4,6 +4,7 @@ public class CotA {
         System.out.println("BoGa");
         System.out.println("Qeunt");
         // hogua thik 
+        System.out.println(5+8);
     }
     
 }
