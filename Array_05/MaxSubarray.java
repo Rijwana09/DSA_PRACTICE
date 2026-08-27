@@ -27,9 +27,17 @@ public class MaxSubarray {
         System.out.println("max subarray sum is : "+maxSum);
     }
 
-    public static void maxSubarraySumKadane(int[] nums){
+    public static void Kadane(int[] nums){
 
-        
+        int ms = nums[0];
+        int cs =nums[0] ;
+//nasta karke 
+        for (int i = 0; i < nums.length; i++) {
+
+            cs = Math.max(nums[i], cs + nums[i]);
+            ms = Math.max(cs, ms);
+        }
+        System.out.println("max subarray sum is : "+ms);
     }
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
@@ -39,11 +47,11 @@ public class MaxSubarray {
 
         System.out.println("Enter the array elements : ");
         int[] array = new int[size];
-
+        //-2 -3 4 -1 -2 1 5 -3
         for (int index = 0; index < array.length; index++){
                 array[index]=sc.nextInt();
         }
 
-        maxSubarraySumKadane(array);
+        Kadane(array);
     }
 }
