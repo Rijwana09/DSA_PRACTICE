@@ -17,6 +17,30 @@ public class StoreWater {
         }
         return maxWater;
     }
+
+    // 2 pointer aproach
+    public static int store_Water(ArrayList<Integer> height) {
+
+        int maxWater = 0;
+        int lp = 0;
+        int rp = height.size()-1;
+
+        // calculate water area
+        while (lp<rp) {
+            int ht = Math.min(height.get(lp),height.get(rp));
+            int width = rp-lp; 
+            int currWater = ht * width; 
+            maxWater = Math.max(maxWater, currWater);
+
+            //update ptr
+            if(height.get(lp)<height.get(rp)){
+                lp++;
+            }else{
+                rp--;
+            }
+        }   
+        return maxWater;
+    }
     public static void main(String[] args) {
         ArrayList<Integer> height = new ArrayList<>();
 
@@ -32,6 +56,6 @@ public class StoreWater {
         height.add(7);
 
     
-        System.out.println(storewater(height));
+        System.out.println(store_Water(height));
     }
 }
