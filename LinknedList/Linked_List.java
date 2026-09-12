@@ -6,7 +6,7 @@ public class Linked_List {
         Node next; // why we define as node because next means -> denote next node 
         
         public Node(int data){ //constructor
-            this.data=data; //cuurent data will save 
+            this.data=data; //current data will save 
             this.next=null;
         }
     }
@@ -171,6 +171,21 @@ public class Linked_List {
             return helper(head, key);
         }
 
+        public void reverse(){
+            Node prev = null;
+            Node curr = tail = head ;
+            Node next;
+
+            while(curr != null){
+                next = curr.next;
+                curr.next = prev;
+                prev = curr;
+                curr = next;
+            }
+            head = prev;
+        }
+
+
 
     public static void main(String[] args) {
         Linked_List ll = new Linked_List();  // object create
@@ -182,9 +197,8 @@ public class Linked_List {
         
         ll.print();
 
-        System.out.println(ll.recSearch(3));
-        System.out.println(ll.recSearch(10));
-
+        ll.reverse();
+        ll.print();
 
     }
 } 
